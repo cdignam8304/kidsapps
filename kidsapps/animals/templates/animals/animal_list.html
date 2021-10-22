@@ -1,8 +1,55 @@
-{% block content %}
-    <h2>Animals</h2>
-    <ul>
-        {% for animal in object_list %}
-            <li>{{ animal.english }}</li>
-        {% endfor %}
-    </ul>
-{% endblock %}
+
+<head>
+    
+    <!-- What to display in browser tab -->
+    <title>Animal List</title>
+
+    {% load static %}
+
+</head>
+
+
+<body>
+
+{% include 'animals/includes/header.html' %}
+
+    <div class="container">
+        {% block content %}
+            <h2>Animals</h2>
+
+            <div class="row">
+
+                {% for animal in object_list %}
+                    
+                    <div class="col s4">
+
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                {% if animal.photo %}
+                                    <img src= "{{ animal.photo.url|slice:"1:" }}" width="150" height="250" class="">
+                                {% endif %}
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{ animal.english }}<i class="material-icons right">more_vert</i></span>
+                                <p><a href="#"></a></p>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">{{ animal.english }}<i class="material-icons right">close</i></span>
+                                <h2>{{ animal.french }}</h2>
+                            </div>
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endblock %}
+    </div>
+
+
+</body>
+
+{% comment %} Auto initialize all Materialize javascript components (cannot access parameters this way) {% endcomment %}
+<script>M.AutoInit();</script>
