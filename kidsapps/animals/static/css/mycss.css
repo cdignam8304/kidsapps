@@ -1,0 +1,21 @@
+/* Selects all elements and applies following styles */
+* {
+    
+}
+
+#animalform {
+    background: white;
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    right: 10%;
+    opacity: 50%;
+}
+
+#animalinput {
+    font-size: 25px;
+    text-align: center;
+    border: 0;
+}
+
+
