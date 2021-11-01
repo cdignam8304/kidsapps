@@ -7,7 +7,6 @@ from django.conf import settings
 
 
 urlpatterns = [
-	# path('', views.index, name='animals-index'),
         path('', AnimalListView.as_view(), name='animal-list'),
 ]
 
